@@ -1,0 +1,10 @@
+.page-header
+  = render 'collection_actions'
+  %h2= t('.title', collection_count: collection.count, collection_name: resource_class.model_name.human(count: collection.count))
+
+.table-responsive
+  %table.table.table-hover.table-bordered
+    %thead
+      = render 'table_head'
+    %tbody
+      = render collection

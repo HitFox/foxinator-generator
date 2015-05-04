@@ -1,0 +1,63 @@
+de:
+  language:
+    en: englisch
+    de: deutsch
+  activerecord:
+    models:
+      role:
+        one: 'Rolle'
+        other: 'Rollen'
+      permission:
+        one: 'Berechtigung'
+        other: 'Berechtigungen'
+      admin:
+        one: 'Administrator'
+        other: 'Administratoren'
+      user:
+        one: 'Kunde'
+        other: 'Kunden'
+      profile:
+        one: 'Profil'
+        other: 'Profile'
+    attributes:
+      admin:
+        created_at: 'hinzugefügt'
+        email: 'E-Mail'
+      user:
+        created_at: 'hinzugefügt'
+        email: 'E-Mail'
+        sign_in_count: 'Anzahl Logins'
+        current_sign_in_ip: 'Aktueller Login IP'
+        current_sign_in_at: 'Aktueller Login'
+        last_sign_in_ip: 'Letzer Login IP'
+        last_sign_in_at: 'Letzer Login'
+        confirmed_at: 'E-Mail bestätigt'
+      profile:
+        title: 'Anrede'
+        first_name: 'Vorname'
+        last_name: 'Nachname'
+        street: 'Straße'
+        house_number: 'Hausnummer'
+        zipcode: 'Postleitzahl'
+        city: 'Stadt'
+        country: 'Land'
+        birthdate: 'Geburtsdatum'
+        gender: 'Geschlecht'
+  are_you_sure: 'Sind Sie sicher?'
+  dashboard: Dashboard
+  edit: 'bearbeiten'
+  delete: 'löschen'
+  create: 'anlegen'
+  update: 'aktualisieren'
+  cancel: 'abbrechen'
+  permissions: 'Berechtigungen bearbeiten'
+  admin:
+    base:
+      collection_actions:
+        new_link: '%{resource_name} hinzufügen'
+      index:
+        title: '%{collection_count} %{collection_name}'
+      edit:
+        title: '%{resource_name} bearbeiten'
+      new:
+        title: '%{resource_name} hinzufügen'

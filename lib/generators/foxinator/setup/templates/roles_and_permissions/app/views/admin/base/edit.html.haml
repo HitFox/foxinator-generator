@@ -1,0 +1,8 @@
+%h2= t('.title', resource_name: resource_class.model_name.human)
+
+= comfy_form_for [current_namespace, current_parent, resource] do |form|
+  = render form
+  = form.form_group class: 'form-actions' do
+    = form.submit t(resource.new_record? ? 'create' : 'update'), class: 'btn btn-primary'
+    = link_to t('cancel'), [current_namespace, current_parent, resource.new_record? ? resource_class : resource], class: 'btn btn-link' 
+

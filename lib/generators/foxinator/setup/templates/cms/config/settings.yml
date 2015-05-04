@@ -1,0 +1,11 @@
+
+devise:
+  secret_key: <%= ENV['DEVISE_SECRET_KEY'] %>
+  
+permissions:
+  namespaces: 
+    - :admin
+  permitted:
+    controllers:
+      - admin/dashboards
+      - admin/accounts

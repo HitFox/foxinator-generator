@@ -1,0 +1,46 @@
+Rails.application.routes.draw do
+  scope ':locale', defaults: { locale: I18n.default_locale.to_s } do
+    
+    devise_for :admins, path: '/admin', path_names: { sign_in: 'login', sign_out: 'logout' }
+
+    <% if config[:comments] %>
+      concern :commentable do
+        resources :comments, only: [:create, :destroy]
+      end
+    <% end %>
+
+    namespace :admin do
+      resource :account, only: [:edit, :update]
+
+      <% if config[:permissions] %>
+      resources :roles, except: :show<% if config[:comments]; %>, concerns: [:commentable]<% end; %> do |variable|
+        patch :sync_and_permit, on: :collection
+        patch :sync, on: :collection
+      end
+      <% end %>
+
+      resources :admins<% if config[:comments]; %>, concerns: [:commentable]<% end; %> do
+        member do
+        <% if config[:permissions] %>
+          get :permissions
+        <% end %>
+          Admin.state_machine.events.map(&:name).each do |event_name|
+            patch event_name
+          end
+        end
+      end
+
+      <% if config[:comments] %>
+        resources :comments
+      <% end %>
+
+      root 'dashboards#index'
+
+    end
+
+    comfy_route :cms_admin, path: 'admin/cms'
+    comfy_route :cms, path: '/', sitemap: false
+  end
+  
+  root to: 'comfy/cms/content#show'
+end

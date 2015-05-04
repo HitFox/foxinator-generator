@@ -1,0 +1,8 @@
+= tr(resource, :email, mail_to(resource.email))
+= tr(resource, :state, status_tag(resource.state))
+= tr(resource, :sign_in_count)
+= tr(resource, :current_sign_in_at, l(resource.current_sign_in_at, format: :long))
+= tr(resource, :current_sign_in_ip)
+= tr(resource, :last_sign_in_at, l(resource.last_sign_in_at, format: :long))
+= tr(resource, :last_sign_in_ip)
+= tr(resource, :created_at, l(resource.created_at, format: :long))

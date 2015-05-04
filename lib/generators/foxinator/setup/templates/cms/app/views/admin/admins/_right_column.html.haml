@@ -1,0 +1,4 @@
+%ul.nav
+  - resource.state_events.each do |event|
+    %li
+      = link_to resource_class.human_state_event_name(event), [event, current_namespace, resource], class: ['btn', event_css_class(event)], method: :patch

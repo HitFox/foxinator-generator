@@ -1,0 +1,12 @@
+.page-header
+  = render 'member_actions'
+  %h2= resource.try(:name) || [resource.model_name.human, resource.id].join(' #')
+
+= content_for :right_column do
+  = render 'right_column'
+
+.table-responsive
+  %table.table.table-bordered.table-hover.table-resource
+    = render 'show'
+
+= render 'admin/comments/comments', current_parent: resource

@@ -1,0 +1,3 @@
+= link_to [:new, current_namespace, current_parent, resource_instance_name], class: 'btn btn-default pull-right' do
+  %i.glyphicon.glyphicon-plus
+  = t('.new_link', resource_name: resource_class.model_name.human)

@@ -1,0 +1,15 @@
+.panel.panel-default
+  .panel-heading
+    %small
+      %b
+        = mail_to comment.admin.email
+        &nbsp;
+        %small
+          %b
+            = l(comment.created_at, format: :short)
+        .pull-right          
+          - if comment.admin == current_admin
+            = link_to [current_namespace, current_parent, comment], method: :delete, class: 'close' do
+              %i.glyphicon.glyphicon-remove-sign.alert-danger  
+  .panel-body
+    = comment.message

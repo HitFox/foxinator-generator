@@ -1,0 +1,87 @@
+= render 'comfy/admin/cms/partials/navigation_before'
+
+%ul.nav.nav-stacked.main-nav
+  %li.dropdown
+    = active_link_to '#', active: [['admin/accounts'], []], data: { toggle: :dropdown } do
+      = truncate(current_admin.email, length: 20)
+    %ul.dropdown-menu
+      %li
+        = active_link_to [:edit, :admin, :account], active: [['admin/accounts'], []] do
+          = t('.account')
+          %i.glyphicon.glyphicon-wrench.pull-right
+      %li
+        = link_to [:destroy, :admin, :session] do
+          = t('.logout')
+          %i.glyphicon.glyphicon-off.pull-right
+
+- if (%w(sites).include?(controller_name) && %w(index).include?(action_name)) || (!@site || @site.new_record?)
+  %ul.nav.nav-stacked.main-nav
+    %li.dropdown
+      = active_link_to '#', active: [['admin/accounts'], []], data: { toggle: :dropdown } do
+        = t(locale, scope: :language)
+        %i.glyphicon.glyphicon-globe.pull-right
+      %ul.dropdown-menu
+        %li
+          - I18n.available_locales.each do |locale|
+            = active_link_to params.merge(locale: locale), active: [['admin/accounts'], []] do
+              = t(locale, scope: :language)
+- else
+  %ul.navigation
+    %li
+      = active_link_to '#', active: false do
+        = t(locale, scope: :language)
+        %i.glyphicon.glyphicon-globe.pull-right
+
+%ul.navigation
+  %li.divider 
+    &nbsp;
+  %li
+    = active_link_to [:admin, :root], active: [['admin/dashboards'], []] do
+      = t('.home')
+      %i.glyphicon.glyphicon-home.pull-right
+  %li
+    = active_link_to [:admin, Admin], active: [['admin/admins'], []] do
+      = Admin.model_name.human(count: :other)
+      %i.glyphicon.glyphicon-king.pull-right
+
+    <% if config[:permissions] %>
+    - if %w(admins roles).include?(controller_name)
+      %ul.navigation
+        %li
+          = active_link_to [:admin, Role], active: [['admin/roles'], []] do
+            = Role.model_name.human(count: :other)
+            %i.glyphicon.glyphicon-lock.pull-right
+    <% end %>
+      
+%ul.navigation
+  %li
+    = active_link_to comfy_admin_cms_sites_path, active: ['comfy/admin/cms/sites'] do
+      %i.glyphicon.glyphicon-folder-open.pull-right
+      = t('comfy.admin.cms.base.sites')
+      
+    - if @site && !@site.new_record? || %w(emails).include?(controller_name)
+      %ul.navigation
+        - if @site && !@site.new_record?
+          %li
+            = active_link_to comfy_admin_cms_site_layouts_path(@site) do
+              %i.glyphicon.glyphicon-picture.pull-right
+              = t('comfy.admin.cms.base.layouts')
+          %li
+            = active_link_to comfy_admin_cms_site_pages_path(@site) do
+              %i.glyphicon.glyphicon-list-alt.pull-right
+              = t('comfy.admin.cms.base.pages')
+          %li
+            = active_link_to comfy_admin_cms_site_snippets_path(@site) do
+              %i.glyphicon.glyphicon-tasks.pull-right
+              = t('comfy.admin.cms.base.snippets')
+          %li
+            - unless is_active_link?(comfy_admin_cms_site_files_path(@site))
+              %a.cms-files-open-modal{ href: '#', title: 'Open library' }
+                %i.glyphicon.glyphicon-th-list
+            = active_link_to t('comfy.admin.cms.base.files'), comfy_admin_cms_site_files_path(@site)
+
+  = cms_hook :navigation
+
+  = render 'comfy/admin/cms/partials/navigation_inner'
+
+= render 'comfy/admin/cms/partials/navigation_after'

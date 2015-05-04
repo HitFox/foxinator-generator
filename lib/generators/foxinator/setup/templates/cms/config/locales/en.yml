@@ -1,0 +1,63 @@
+en:
+  language:
+    en: english
+    de: german
+  activerecord:
+    models:
+      role:
+        one: 'Role'
+        other: 'Roles'
+      permission:
+        one: 'Permission'
+        other: 'Permissions'
+      admin:
+        one: 'Administrator'
+        other: 'Administrators'
+      user:
+        one: 'Customer'
+        other: 'Customers'
+      profile:
+        one: 'Profile'
+        other: 'Profiles'
+    attributes:
+      admin:
+        created_at: 'Created'
+        email: 'E-Mail'
+      user:
+        created_at: 'Created'
+        email: 'E-Mail'
+        sign_in_count: 'Sign in count'
+        current_sign_in_ip: 'Current sign in IP'
+        current_sign_in_at: 'Current sign in'
+        last_sign_in_ip: 'Last sign in IP'
+        last_sign_in_at: 'Last sign in'
+        confirmed_at: 'Confirmed'        
+      profile:
+        title: 'Title'
+        first_name: 'First name'
+        last_name: 'Last name'
+        street: 'Street'
+        house_number: 'House number'
+        zipcode: 'Zipcode'
+        city: 'City'
+        country: 'Country'
+        birthdate: 'Birthdate'
+        gender: 'Gender'
+  are_you_sure: 'Are you sure?'
+  dashboard: Dashboard
+  edit: 'edit'
+  delete: 'delete'
+  create: 'create'
+  update: 'update'
+  cancel: 'cancel'
+  permissions: 'edit Permissions'
+  admin:
+    base:
+      collection_actions:
+        new_link: 'new %{resource_name}'
+      index:
+        title: '%{collection_count} %{collection_name}'
+      edit:
+        title: 'edit %{resource_name}'
+      new:
+        title: 'new %{resource_name}'

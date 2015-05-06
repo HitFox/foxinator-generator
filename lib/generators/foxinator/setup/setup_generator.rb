@@ -39,6 +39,8 @@ module Foxinator
           use_comments = ask("Do you want comments?").downcase.include?("y")
           if use_comments
             say "queueing up comments..."
+            generate(:migration, 'CreateComments admin:references commentable:references{polymorphic} message:string created_at:datetime updated_at:datetime')
+            generate(:migration, 'CreateJoinTableAdminsComments admins:index comments:index')
             paths << "comments/"
           end
 

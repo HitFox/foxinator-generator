@@ -23,7 +23,6 @@ module Foxinator
 
           generate("comfy:cms")
           say "queueing up cms..."
-          destination_path = "app/views/admin/admins/"
           paths = ["cms/"]
 
           use_permissions = ask("Do you want roles and permissions?").downcase.include?("y")

@@ -6,7 +6,7 @@ module SortHelper
     defaults = { resource_class: respond_to?(:resource_class) ? resource_class : nil }
     options = defaults.merge(options)
     
-    args.last.kind_of?(Hash) && args.last.extractable_options? ? args.last = options : args << options
+    args.last.kind_of?(Hash) && args.last.extractable_options? ? args[-1] = options : args << options
     
     column = Column.new(*args, &block)    
     sort_key = column.sortable? && column.sort_key
@@ -50,7 +50,7 @@ module SortHelper
     attr_accessor :title, :data , :html_class
 
     def initialize(*args, &block)
-      @options = args.extract_options!
+      @options = args.extract_options!      
       @title = args[0]
       @html_class = @options.delete(:class) || @title.to_s.downcase.underscore.gsub(/ +/,'_')
       @data  = args[1] || args[0]
@@ -79,11 +79,13 @@ module SortHelper
     end
 
     def pretty_title
-      if @title.kind_of?(Symbol)
+      if @title.kind_of?(Symbol) ||  @title.kind_of?(String)
         default_title =  @title.to_s.titleize
 
-        if @options[:i18n] && @options[:i18n].respond_to?(:human_attribute_name)
-          @title = @options[:i18n].human_attribute_name(@title)
+        if @options[:i18n]
+          @title = t(@options[:i18n])
+        elsif @options[:name]
+          @title = @resource_class.human_attribute_name(@options[:name])
         elsif @resource_class  
           @title = @resource_class.human_attribute_name(@title)
         else

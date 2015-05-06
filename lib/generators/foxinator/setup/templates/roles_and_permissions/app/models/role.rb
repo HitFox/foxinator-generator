@@ -24,7 +24,7 @@ class Role < ActiveRecord::Base
   #
   #
   
-  attr_accessor :previous_permission_ids
+  attr_accessor :previous_permissions
   
   #
   # Plugins
@@ -78,7 +78,7 @@ class Role < ActiveRecord::Base
   
   has_many :admins, dependent: :nullify
   
-  has_and_belongs_to_many :permissions, uniq: true
+  has_and_belongs_to_many :permissions, -> { uniq }
   
   #
   # Nested Attributes
@@ -106,7 +106,7 @@ class Role < ActiveRecord::Base
   #
   #
   
-  before_save :set_identifier
+  before_validation :set_identifier
   
   after_save :set_admin_permissions!
   
@@ -133,6 +133,12 @@ class Role < ActiveRecord::Base
   #
   #
   #
+  
+  def self.exists?(identifier)
+    return false unless identifier
+    
+    where(identifier: identifier).exists?
+  end
 
   #
   # Protected
@@ -159,7 +165,7 @@ class Role < ActiveRecord::Base
   end
   
   def set_admin_permissions!
-    previous_permissions = previous_permission_ids.blank? ? [] : Permission.where(id: previous_permission_ids) 
+    self.previous_permissions ||= []
     
     admins.each do |admin|
       custom_permissions = admin.permissions - previous_permissions

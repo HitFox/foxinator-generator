@@ -72,8 +72,8 @@ class Permission < ActiveRecord::Base
   #
   #
   
-  has_and_belongs_to_many :admins, uniq: true
-  has_and_belongs_to_many :roles, uniq: true
+  has_and_belongs_to_many :admins, -> { uniq }
+  has_and_belongs_to_many :roles, -> { uniq }
   
   #
   # Nested Attributes
@@ -140,7 +140,7 @@ class Permission < ActiveRecord::Base
     role.update_attributes(permission_ids: Permission.pluck(:id)) if role
   end
   
-  def self.synchronize_routes(options = {})
+  def self.synchronize_routes(options = {})    
     Rails.logger.info "**[Permission Synchronizer] Starting permission sync for #{wanted_routes.size} routes." 
     
     Rails.logger.silence do
@@ -162,10 +162,10 @@ class Permission < ActiveRecord::Base
       excepted_controllers: Settings.permissions.permitted.controllers
     }
     configuration = default_options.merge(options)
-
+    
     route.requirements.present? &&
     route.requirements.has_key?(:controller) &&
-    configuration[:namespaces].all? { |namespace| route.requirements[:controller].include?("#{namespace.to_s}/") } &&
+    configuration[:namespaces].any? { |namespace| route.requirements[:controller].include?("#{namespace.to_s}/") } &&
     (configuration[:excepted_controllers].blank? || !configuration[:excepted_controllers].include?(route.requirements[:controller]))
   end
 

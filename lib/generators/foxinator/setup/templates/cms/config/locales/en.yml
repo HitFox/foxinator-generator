@@ -4,6 +4,9 @@ en:
     de: german
   activerecord:
     models:
+      comment:
+        one: Comment
+        other: Comments
       role:
         one: 'Role'
         other: 'Roles'
@@ -13,36 +16,14 @@ en:
       admin:
         one: 'Administrator'
         other: 'Administrators'
-      user:
-        one: 'Customer'
-        other: 'Customers'
-      profile:
-        one: 'Profile'
-        other: 'Profiles'
     attributes:
+      plan:
+        name: Name
+        state: State
+        activated_at: Activated at
       admin:
         created_at: 'Created'
-        email: 'E-Mail'
-      user:
-        created_at: 'Created'
-        email: 'E-Mail'
-        sign_in_count: 'Sign in count'
-        current_sign_in_ip: 'Current sign in IP'
-        current_sign_in_at: 'Current sign in'
-        last_sign_in_ip: 'Last sign in IP'
-        last_sign_in_at: 'Last sign in'
-        confirmed_at: 'Confirmed'        
-      profile:
-        title: 'Title'
-        first_name: 'First name'
-        last_name: 'Last name'
-        street: 'Street'
-        house_number: 'House number'
-        zipcode: 'Zipcode'
-        city: 'City'
-        country: 'Country'
-        birthdate: 'Birthdate'
-        gender: 'Gender'
+        email: 'eMail'
   are_you_sure: 'Are you sure?'
   dashboard: Dashboard
   edit: 'edit'
@@ -51,13 +32,30 @@ en:
   update: 'update'
   cancel: 'cancel'
   permissions: 'edit Permissions'
+  select_prompt: 'Please select %{resource_name} ...'
   admin:
+    roles:
+      collection_actions:
+        sync: Synchronize Actions
+        sync_and_permit: Synchronize Actions and Permit to Super Admins
+      sync:
+        success: All actions are synchronized now.
+      sync_and_permit:
+        success: All actions are now permitted to super admins.
     base:
       collection_actions:
-        new_link: 'new %{resource_name}'
+        new_link: 'Create New %{resource_name}'
       index:
         title: '%{collection_count} %{collection_name}'
       edit:
-        title: 'edit %{resource_name}'
+        title: 'Edit %{resource_name}'
       new:
-        title: 'new %{resource_name}'
+        title: 'Create New %{resource_name}'
+  time:
+    formats:
+      number: "%Y/%m/%d %H:%M:%S"
+      date:  "%Y/%m/%d"
+  datetime:
+    formats:
+      number: "%Y/%m/%d %H:%M:%S"
+      date:  "%Y/%m/%d"

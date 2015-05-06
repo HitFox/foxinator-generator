@@ -1,4 +1,5 @@
-%h2= t('.account')
+.page-header
+  %h2= t('.account')
 
 = comfy_form_for [current_namespace, resource] do |form|
   = render 'admin/admins/form', form: form

@@ -1,5 +1,25 @@
 module Admin::BaseHelper
+      
+  def current_title
+    @current_title ||= if resource? && current_namespace != 'comfy'
+      if resource.respond_to?(:name)
+        [resource_class.model_name.human, resource.name].join(': ')
+      else
+        [resource_class.model_name.human, resource.id].join(' #')
+      end
+    elsif current_namespace == 'comfy'
+      t("comfy.admin.cms.#{controller_name}.#{action_name}.title") 
+    elsif %w(dashboards).include?(controller_name)
+      t('dashboard', default: 'Dashboard  ')
+    elsif respond_to?(:resource_class) && resource_class
+      resource_class.model_name.human(count: :other)
+    elsif current_namespace == 'rails_email_preview'  
+      'E-Mails'
+    end
     
+    [@current_title, ComfortableMexicanSofa.config.cms_title].compact.join(' - ')
+  end  
+      
   def event_css_class(event, options = {})
     defaults = { prefix: 'btn', separator: '-' }
     options = defaults.merge(options)
@@ -51,7 +71,8 @@ module Admin::BaseHelper
     
     [options[:prefix], options[:size]].join(options[:separator])
   end
-<% if config[:permissions] %>
+  
+  <% if config[:permissions] %>
   def permission_granted_to(*args, &block)
     return(block_given? ? '' : false) unless admin_signed_in?
     
@@ -61,31 +82,40 @@ module Admin::BaseHelper
       block_given? ? '' : access
     end    
   end
+  
   def link_to(*args, &block)    
     return super unless admin_signed_in?
     
-    options = block_given? ? args.first : args[1]
+    options, url_options = block_given? ? [args.first, args.second] : [args.second, args.third]
     path = case options
              when Array then polymorphic_url(options)
              else url_for(options)
            end
-    
-    super if current_admin.permitted_to?(path, args[2])
-  end  
-<% end %>
+           
+    super if current_admin.permitted_to?(path, url_options)
+  end
+  <% end %>
   
   def actions_cell_tag(resource)
     content_tag :td, class: 'actions-cell' do
-      concat link_to(content_tag(:i, nil,  class: 'glyphicon glyphicon-trash'), [current_namespace, current_parent, resource], class: 'btn btn-danger btn-xs pull-right', method: :delete, data: { confirm: t('are_you_sure') })
+      concat link_to(content_tag(:i, nil,  class: 'glyphicon glyphicon-trash'), [current_namespace, resource], class: 'btn btn-danger btn-xs pull-right', method: :delete, data: { confirm: t('are_you_sure') })
       concat content_tag(:span, '&nbsp;'.html_safe, class: 'pull-right')
-      concat link_to(content_tag(:i, nil, class: 'glyphicon glyphicon-pencil'), [:edit, current_namespace, current_parent, resource], class: 'btn btn-default btn-xs pull-right')
+      concat link_to(content_tag(:i, nil, class: 'glyphicon glyphicon-pencil'), [:edit, current_namespace, resource], class: 'btn btn-default btn-xs pull-right')
     end
   end
   
-  def table_row(resource, field, value=nil)
+  def table_row(*attr)
+    object, field, value = if attr.first.kind_of?(Symbol)
+      [resource, attr.first, attr.size > 1 ? attr.last : nil]
+    else
+      attr
+    end
+    
+    value = l(object.send(field), format: :number) if !value && field.to_s =~ /_at\Z/
+    
     content_tag :tr do
-      concat content_tag(:td, resource.class.human_attribute_name(field))
-      value ? concat(content_tag(:td, value)) : concat(content_tag(:td, resource.send(field)))
+      concat content_tag(:td, object.class.human_attribute_name(field))
+      value ? concat(content_tag(:td, value)) : concat(content_tag(:td, object.send(field)))
     end
   end
   
@@ -109,7 +139,7 @@ module Admin::BaseHelper
   end
   
   def cms_asset_paths
-    @cms_asset_paths ||= %w(sites layouts pages snippets files revisions).map do |filename|
+    @cms_asset_paths ||= %w(base sites layouts pages snippets files revisions).map do |filename|
       File.join('comfy', 'admin', 'cms', filename)
     end
   end

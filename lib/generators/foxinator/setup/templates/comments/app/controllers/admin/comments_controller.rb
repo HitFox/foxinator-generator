@@ -32,7 +32,7 @@ class Admin::CommentsController < Admin::BaseController
   #
   #
   
-  belongs_to :admin, :profile, :role, :user, polymorphic: true
+  belongs_to :admin, :role, polymorphic: true
   
   #
   # Actions

@@ -1,4 +1,6 @@
 require 'generators/foxinator'
+require 'rails/generators/migration'
+require 'rails/generators/generated_attribute'
 require 'find'
 
 module Foxinator
@@ -6,8 +8,8 @@ module Foxinator
     class SetupGenerator < Base
       include Rails::Generators::Migration
       
-      def generate_all
-
+      def initialize(*args, &block)
+        super
         # Build base controller and admin area
         generate("devise:install")
         generate("devise", "admin")
@@ -73,6 +75,10 @@ module Foxinator
         end
 
         say 'The best app template ever has been generated.'
+      end
+
+      def destination_path(path)
+        File.join(destination_root, path)
       end
     end
   end

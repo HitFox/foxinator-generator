@@ -1,6 +1,4 @@
 require 'generators/foxinator'
-require 'rails/generators/migration'
-require 'rails/generators/generated_attribute'
 require 'find'
 
 module Foxinator

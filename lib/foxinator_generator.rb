@@ -1,0 +1,8 @@
+require "rails/generators"
+require "devise"
+require "state_machine"
+require "inherited_resources"
+require "rails_config"
+require "devise"
+require "kaminari"
+require "generators/foxinator"

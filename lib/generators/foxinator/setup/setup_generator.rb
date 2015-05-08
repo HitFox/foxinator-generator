@@ -1,5 +1,5 @@
-require 'generators/foxinator'
-require 'find'
+require "generators/foxinator"
+require "find"
 
 module Foxinator
   module Generators
@@ -11,7 +11,7 @@ module Foxinator
         # Build base controller and admin area
         generate("devise:install")
         generate("devise", "admin")
-        generate(:migration, 'AddStateToAdmin state:string:index')
+        generate(:migration, "AddStateToAdmin state:string:index")
 
         source_path = "cms/app/controllers/admin/"
         destination_path = "app/controllers/admin/"
@@ -28,19 +28,19 @@ module Foxinator
           use_permissions = ask("Do you want roles and permissions?").downcase.include?("y")
           if use_permissions
             say "queueing up roles and permissions..."
-            generate(:migration, 'CreateRoles identifier:string:index name:string created_at:datetime updated_at:datetime')
-            generate(:migration, 'CreatePermissions controller:string:index action:string:index created_at:datetime updated_at:datetime')
-            generate(:migration, 'AddRoleIdToAdmin role_id:integer')
-            generate(:migration, 'CreateJoinTablePermissionRole permissions:index roles:index')
-            generate(:migration, 'CreateJoinTableAdminPermission admins:index permissions:index')
+            generate(:migration, "CreateRoles identifier:string:index name:string created_at:datetime updated_at:datetime")
+            generate(:migration, "CreatePermissions controller:string:index action:string:index created_at:datetime updated_at:datetime")
+            generate(:migration, "AddRoleIdToAdmin role_id:integer")
+            generate(:migration, "CreateJoinTablePermissionRole permissions:index roles:index")
+            generate(:migration, "CreateJoinTableAdminPermission admins:index permissions:index")
             paths << "roles_and_permissions/"
           end
 
           use_comments = ask("Do you want comments?").downcase.include?("y")
           if use_comments
             say "queueing up comments..."
-            generate(:migration, 'CreateComments admin:references commentable:references{polymorphic} message:string created_at:datetime updated_at:datetime')
-            generate(:migration, 'CreateJoinTableAdminsComments admins:index comments:index')
+            generate(:migration, "CreateComments admin:references commentable:references{polymorphic} message:string created_at:datetime updated_at:datetime")
+            generate(:migration, "CreateJoinTableAdminsComments admins:index comments:index")
             paths << "comments/"
           end
 
@@ -60,11 +60,11 @@ module Foxinator
                 destination_file = source.split(folder, 2).last
                 
                 if name[-2..-1] == "tt"
-                  say "copying: #{source} to #{destination_file[0..-4]}"
+                  # say "copying: #{source} to #{destination_file[0..-4]}"
                   File.delete(destination_file[0..-4]) if File.exist?(destination_file[0..-4])
                   template(source, destination_file[0..-4], config)
                 else
-                  say "copying: #{source} to #{destination_file}"
+                  # say "copying: #{source} to #{destination_file}"
                   File.delete(destination_file) if File.exist?(destination_file)
                   copy_file(source, destination_file)
                 end
@@ -73,7 +73,7 @@ module Foxinator
           end
         end
 
-        say 'The best app template ever has been generated.'
+        say "The best app template ever has been generated."
       end
     end
   end

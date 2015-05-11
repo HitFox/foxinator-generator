@@ -1,19 +1,41 @@
 = foxinator-generator
 
-Description goes here.
+The +foxinator-generator+ lets you quickly get HitFox projects off the ground. It comes with three installation options: a basic admin controller system, a CMS with roles & permissions, and a CMS with admin comments. Of course, you can install all three too. It also gives you a custom scaffold to generate admin-area models.
 
-== Contributing to foxinator-generator
- 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
-* Fork the project.
-* Start a feature/bugfix branch.
-* Commit and push until you are happy with your contribution.
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+== Features
 
-== Copyright
+The +foxinator-generator+ uses the HitFox fork of Comfortable Mexican Sofa, Devise, and the +inherited_resource+ and +state_machine+ gems. The basic structure is an Admin namespace, which has a BaseController. All future admin-area controllers will inherit from this BaseController. The BaseController comes with a set of default views which will be automatically inherited by all sub-controllers, making your code more DRY.
 
-Copyright (c) 2015 Joe Webb. See LICENSE.txt for
-further details.
+When you use the <tt>foxinator:create</tt> command, it will add a controller in this Admin namespace, inheriting from the BaseController.
 
+== Installation
+
+Include the gem in your gemfile:
+
+<tt>gem "foxinator-generator", git: "git@github.com:HitFox/foxinator-generator.git"</tt>
+
+Then answer +y+ or +n+ to the prompts.
+
+== Usage
+
+In your rails app run +bundle install+ then to create your admin namespace:
+
+<tt>rails g foxinator:setup</tt>
+
+This will install Devise and Comfortable Mexican Sofa and all other required dependencies for your admin area!
+
+Then:
+
+<tt>rake db:migrate</tt>
+
+To setup your admin user, you run:
+
+<tt>rake admins:setup</tt>
+
+Now if you want to create an admin-area controller using the +foxinator-generator+ you can:
+
+<tt>rails g foxinator:create MyController</tt>
+
+Which will automatically create the controller file (inheriting from BaseController) and some default views.
+
+That's it! You should now have a basic app up and running!

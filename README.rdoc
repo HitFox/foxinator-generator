@@ -12,8 +12,9 @@ When you use the <tt>foxinator:create</tt> command, it will add a controller in 
 
 Include the gem in your gemfile:
 
-<tt>gem 'comfortable_mexican_sofa', git: 'git@github.com:HitFox/comfortable-mexican-sofa.git'
-gem "foxinator-generator", git: "git@github.com:HitFox/foxinator-generator.git"</tt>
+<tt>gem 'comfortable_mexican_sofa', git: 'git@github.com:HitFox/comfortable-mexican-sofa.git'</tt>
+
+<tt>gem "foxinator-generator", git: "git@github.com:HitFox/foxinator-generator.git"</tt>
 
 Then answer +y+ or +n+ to the prompts.
 

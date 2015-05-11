@@ -75,10 +75,6 @@ module Foxinator
 
         say "The best app template ever has been generated."
       end
-
-      def destination_path(path)
-        File.join(destination_root, path)
-      end
     end
   end
 end

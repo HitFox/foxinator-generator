@@ -1,0 +1,4 @@
+- if current_parent.class.ancestors.include?(Commentable)
+  #comments
+    = render current_parent.comments, current_parent: current_parent
+    = render 'admin/comments/form', current_parent: current_parent

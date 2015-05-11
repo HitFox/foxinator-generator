@@ -1,0 +1,13 @@
+= render 'admin/base/collection_actions'
+
+= content_tag :span, '&nbsp;'.html_safe, class: 'pull-right'
+
+= link_to [:sync_and_permit, current_namespace, current_parent, resource_class], class: 'btn btn-info pull-right', method: :patch do
+  %i.glyphicon.glyphicon-link
+  = t('.sync_and_permit')
+
+= content_tag :span, '&nbsp;'.html_safe, class: 'pull-right'
+
+= link_to [:sync, current_namespace, current_parent, resource_class], class: 'btn btn-warning pull-right', method: :patch do
+  %i.glyphicon.glyphicon-refresh
+  = t('.sync')

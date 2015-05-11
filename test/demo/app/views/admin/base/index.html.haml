@@ -1,0 +1,15 @@
+.page-header
+  = render 'collection_actions'
+  %h2= t('.title', collection_count: collection.total_count, collection_name: resource_class.model_name.human(count: collection.count))
+
+.table-responsive
+  %table.table.table-hover.table-bordered
+    %thead
+      = render 'table_head'
+    %tbody
+      = render collection
+    - if collection.total_pages > 1
+      %tfoot
+        %tr
+          %td{colspan: 20}
+            = paginate collection, theme: 'twitter-bootstrap-3', pagination_class: 'pull-right'

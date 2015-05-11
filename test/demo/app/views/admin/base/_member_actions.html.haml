@@ -1,0 +1,9 @@
+= link_to  [current_namespace, current_parent, resource], class: 'btn btn-danger pull-right', method: :delete, data: { confirm: t('are_you_sure') } do
+  %i.glyphicon.glyphicon-trash
+  = t('delete')
+
+= content_tag :span, '&nbsp;'.html_safe, class: 'pull-right'
+
+= link_to [:edit, current_namespace, current_parent, resource], class: 'btn btn-default pull-right' do  
+  %i.glyphicon.glyphicon-pencil
+  = t('edit')

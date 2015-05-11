@@ -1,0 +1,45 @@
+de:
+  language:
+    en: englisch
+    de: deutsch
+  activerecord:
+    models:
+      role:
+        one: 'Rolle'
+        other: 'Rollen'
+      permission:
+        one: 'Berechtigung'
+        other: 'Berechtigungen'
+      admin:
+        one: 'Administrator'
+        other: 'Administratoren'
+    attributes:
+      admin:
+        created_at: 'hinzugefügt'
+        email: 'E-Mail'
+  are_you_sure: 'Sind Sie sicher?'
+  dashboard: Dashboard
+  edit: 'bearbeiten'
+  delete: 'löschen'
+  create: 'anlegen'
+  update: 'aktualisieren'
+  cancel: 'abbrechen'
+  permissions: 'Berechtigungen bearbeiten'
+  admin:
+    base:
+      collection_actions:
+        new_link: '%{resource_name} hinzufügen'
+      index:
+        title: '%{collection_count} %{collection_name}'
+      edit:
+        title: '%{resource_name} bearbeiten'
+      new:
+        title: '%{resource_name} hinzufügen'
+  time:
+    formats:
+      number: "%d.%m.%Y, %H:%M:%S"
+      date:  "%d.%m.%Y"
+  datetime:
+    formats:
+      number: "%d.%m.%Y, %H:%M:%S"
+      date:  "%d.%m.%Y"

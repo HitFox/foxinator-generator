@@ -1,0 +1,15 @@
+- if resource?
+  - if resource.respond_to?(:state_events)
+    .panel.panel-warning
+      .panel-heading
+        .pull-right= status_tag(resource.state)
+        = t('events')
+
+      .panel-body
+        %ul.nav.nav-pills.nav-stacked
+          - resource.state_events.each do |event|
+            %li
+              = link_to [event, current_namespace, resource], class: ['btn', event_css_class(event)], method: :patch do
+                = resource_class.human_state_event_name(event)
+
+= render 'right_column_after'

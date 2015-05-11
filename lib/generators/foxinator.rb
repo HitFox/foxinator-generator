@@ -1,5 +1,3 @@
-require 'rails/generators/base'
-# require 'pry'
 module Foxinator
   module Generators
     class Base < Rails::Generators::Base #:nodoc:

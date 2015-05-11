@@ -1,0 +1,7 @@
+- if resource?
+  - unless %w(permissions).include?(action_name)  
+    = content_tag :span, '&nbsp;'.html_safe, class: 'pull-right'
+
+    = link_to [:permissions, current_namespace, resource], class: 'btn btn-default pull-right' do  
+      %i.glyphicon.glyphicon-lock
+      = t('activerecord.models.permission.other')      

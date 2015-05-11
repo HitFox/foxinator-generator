@@ -1,0 +1,10 @@
+- if resource?
+  .panel.panel-info
+    .panel-heading
+      = t('relations')
+    .panel-body
+      %ul.nav.nav-pills.nav-stacked
+        %li
+          = link_to [:permissions, current_namespace, resource] do  
+            = Permission.model_name.human(count: :other)
+            %span.badge.pull-right= resource.permissions.count

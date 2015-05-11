@@ -1,0 +1,1 @@
+require "foxinator_generator"

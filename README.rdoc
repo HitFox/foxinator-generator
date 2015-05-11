@@ -18,7 +18,7 @@ Then answer +y+ or +n+ to the prompts.
 
 == Usage
 
-In your rails app run +bundle install+ then to create your admin namespace:
+In your rails app run <tt>bundle install</tt> then to create your admin namespace:
 
 <tt>rails g foxinator:setup</tt>
 

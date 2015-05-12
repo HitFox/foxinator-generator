@@ -1,6 +1,3 @@
 <%- model_attrs.each do |attr| -%>
 = form.text_field :<%= attr.name %>
 <%- end -%>
-
-= form.form_group :class => 'form-actions' do
-  = form.submit :class => 'btn btn-primary'

@@ -1,2 +1,4 @@
-%tr
-  //choose sortable columns for the table
+<%- model_attrs.each do |attr| -%>
+= th(:<%= attr.name %>)
+<%- end -%>
+%th

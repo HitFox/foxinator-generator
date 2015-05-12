@@ -1,5 +1,7 @@
 // displays an object in a row
 // Example:
 %tr
+  <%- model_attrs.each do |attr| -%>
   %td
-    = link_to "object name", "/"
+    = link_to <%= "#{file_name.singularize}.#{attr.name}" %>, "/"
+  <%- end -%>

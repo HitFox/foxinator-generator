@@ -16,8 +16,6 @@ class Admin::<%= class_name.pluralize %>Controller < Admin::BaseController
   #
   #
 
-  include Eventify
-
   #
   # Filter
   # ---------------------------------------------------------------------------------------

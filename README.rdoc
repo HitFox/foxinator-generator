@@ -36,8 +36,10 @@ To setup your admin user, you run:
 
 Now if you want to create an admin-area controller using the +foxinator-generator+ you can:
 
-<tt>rails g foxinator:create MyController</tt>
+<tt>rails g foxinator:create MyModel</tt>
 
-Which will automatically create the controller file (inheriting from BaseController) and some default views.
+Which will automatically create the model and controller files (inheriting from BaseController) and some default views.
+
+Last step: Edit the permitted params in your controller file!
 
 That's it! You should now have a basic app up and running!

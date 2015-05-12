@@ -1,17 +1,16 @@
-require 'generators/foxinator'
-require 'find'
+require 'rails/generators/active_record'
 
 module Foxinator
   module Generators
     class CreateGenerator < Rails::Generators::NamedBase
+      
       include Rails::Generators::Migration
-            no_tasks do 
-        attr_accessor :model_attrs
-      end
+            
+      attr_accessor :model_attrs
       
       source_root File.expand_path(File.join(File.dirname(__FILE__), 'templates'))
       
-      argument :model_args, :type => :array, :default => [], :banner => 'attribute:type'
+      argument :model_args, type: :array, default: [], banner: 'attribute:type'
       
       def initialize(*args, &block)
         super
@@ -25,7 +24,12 @@ module Foxinator
       def self.next_migration_number(dirname)
         ActiveRecord::Generators::Base.next_migration_number(dirname)
       end
-      
+
+      def create_model
+        migration_template 'migration.rb', "db/migrate/create_#{file_name.pluralize}.rb"
+        template 'model.rb', "app/models/#{file_name.singularize}.rb"
+      end
+
       def generate_controller
         template 'controller.rb', "app/controllers/admin/#{file_name.pluralize}_controller.rb"
       end
@@ -42,7 +46,7 @@ module Foxinator
       def generate_route
         admin_namespace  = "namespace\ :admin\ do\n"
         in_root do
-          inject_into_file "config/routes.rb", "    resources :#{file_name.pluralize}\n", { after: admin_namespace, verbose: false, force: true }
+          inject_into_file "config/routes.rb", "      resources :#{file_name.pluralize}\n", { after: admin_namespace, verbose: false, force: true }
         end
       end
       

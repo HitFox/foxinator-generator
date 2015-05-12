@@ -16,6 +16,8 @@ class Admin::<%= class_name.pluralize %>Controller < Admin::BaseController
   #
   #
 
+  include Eventify
+
   #
   # Filter
   # ---------------------------------------------------------------------------------------
@@ -61,4 +63,7 @@ class Admin::<%= class_name.pluralize %>Controller < Admin::BaseController
 
   private
 
+  def permitted_params
+    params.permit(resource_instance_name => [])
+  end
 end

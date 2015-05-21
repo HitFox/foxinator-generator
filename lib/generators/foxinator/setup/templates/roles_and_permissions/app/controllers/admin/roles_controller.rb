@@ -47,7 +47,7 @@ class Admin::RolesController < Admin::BaseController
   end
   
   def update
-    resource.previous_permissions = resource.permissions
+    resource.previous_permissions = resource.permissions.to_a
     super do |success, failure|
       success.html { redirect_to edit_polymorphic_path([current_namespace, resource]) }
     end
@@ -84,7 +84,9 @@ class Admin::RolesController < Admin::BaseController
   private
   
   def permitted_params
-    params.permit(resource_instance_name => [:name, permission_ids: []])
+    permitted_params = params.permit(resource_instance_name => [:name, permission_ids: []])
+    permitted_params.deep_merge!(resource_instance_name => { permission_ids: [] }) unless permitted_params[resource_instance_name].key?(:permission_ids)
+    permitted_params
   end
 
 end

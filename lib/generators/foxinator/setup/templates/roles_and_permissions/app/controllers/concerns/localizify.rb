@@ -24,9 +24,7 @@ module Localizify
   end
   
   def set_locale 
-    parsed_locale = cms_locale || param_locale || cookie_locale || accept_locale || I18n.default_locale
-    
-    
+
     unless [params[:locale].try(:to_sym)].compact.include?(parsed_locale.to_sym)
       redirect_to url_for(locale: parsed_locale)
     end
@@ -34,7 +32,11 @@ module Localizify
     I18n.locale = parsed_locale
     cookify_locale
   end
-  
+
+  def parsed_locale
+    cms_locale || param_locale || cookie_locale || accept_locale || I18n.default_locale
+  end
+
   def cookify_locale
     cookies[:locale] = { value: I18n.locale.to_s, expires: 1.year.from_now }
   end

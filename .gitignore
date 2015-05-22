@@ -48,4 +48,4 @@ pkg
 # For rubinius:
 #*.rbc
 
-test/demo
+/test/demo/**/*

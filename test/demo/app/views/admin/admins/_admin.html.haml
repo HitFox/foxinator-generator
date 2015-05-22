@@ -1,9 +1,0 @@
-%tr{id: dom_id(admin)}
-  %td
-    = link_to admin.email, [current_namespace, admin]
-  %td
-    = status_tag(admin.state)
-  %td
-    = l(admin.created_at, format: :long)
-  = actions_cell_tag(admin)
-        

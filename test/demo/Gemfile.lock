@@ -26,7 +26,7 @@ GIT
       rspec-core (>= 2.99.0.beta1, < 4.0.0)
 
 PATH
-  remote: ../../../foxinator-generator
+  remote: ~/Workspace/foxinator-generator
   specs:
     foxinator-generator (0.0.10)
       devise (~> 3.4.1)

@@ -2,7 +2,9 @@ require "rails_helper"
 
 describe "admin area" do
 
-  let!(:admin) { create(:admin) }
+  # let!(:admin) { create(:admin) }
+  role = Role.create(identifier: "super_admin", name: "Super Admin")
+  admin = Admin.create(email: "admin@example.com", password: "password", role_id: role.id)
 
   before :each do
     Permission.sync_and_permit_admins!
@@ -19,7 +21,7 @@ describe "admin area" do
   end
 
   it "can comment on a model" do
-    model = create(:test_model)
+    model = TestModel.create
     visit "/en/admin/test_models/#{model.id}"
 
     fill_in "comment_message", with: "Keep up the good work, admin"

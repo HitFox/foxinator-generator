@@ -2,7 +2,6 @@ require "rails_helper"
 
 describe "admin area" do
 
-  # let!(:admin) { create(:admin) }
   role = Role.create(identifier: "super_admin", name: "Super Admin")
   admin = Admin.create(email: "admin@example.com", password: "password", role_id: role.id)
 
@@ -36,6 +35,6 @@ describe "admin area" do
 
     click_link "Create New Test model"
 
-    expect{click_button "Create Test model"}.to change{TestModel.all.count}.from(0).to(1)
+    expect{click_button "create"}.to change{TestModel.all.count}.from(0).to(1)
   end
 end

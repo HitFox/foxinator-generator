@@ -73,7 +73,7 @@ module Admin::BaseHelper
   end
   
   <% if config[:permissions] %>
-  def permission_granted_to(*args, &block)
+  def permitted?(*args, &block)
     return(block_given? ? '' : false) unless admin_signed_in?
     
     if access = current_admin.permitted_to?(*args) 

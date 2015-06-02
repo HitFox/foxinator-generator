@@ -1,6 +1,0 @@
-%tr{id: dom_id(role)}
-  %td
-    = link_to role.name, [:edit, current_namespace, role]
-  %td
-    = l(role.created_at, format: :long)
-  = actions_cell_tag(role)

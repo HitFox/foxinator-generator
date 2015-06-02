@@ -107,12 +107,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  devise (~> 3.4.1)
   foxinator-generator!
-  inherited_resources (~> 1.6.0)
-  kaminari (~> 0.16.3)
-  rails_config (~> 0.4.2)
   rdoc (~> 3.12)
   shoulda
   simplecov
-  state_machine (~> 1.2.0)

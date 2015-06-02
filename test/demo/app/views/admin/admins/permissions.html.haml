@@ -1,8 +1,0 @@
-%h2= t('admin.base.edit.title', resource_name: Permission.model_name.human(count: :other))
-
-= comfy_form_for [current_namespace, resource] do |form|
-  = render'/admin/permissions/form', form: form
-  = form.form_group class: 'form-actions' do
-    = form.submit t(resource.new_record? ? 'create' : 'update'), class: 'btn btn-primary'
-    - if %(admins).include?(controller_name)
-      = link_to t('cancel'), [current_namespace, resource.new_record? ? resource_class : resource], class: 'btn btn-link'

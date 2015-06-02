@@ -1,7 +1,7 @@
 module Sortify
   
   def apply_sorting(chain, order_class = resource_class)
-    params[:order] ||= 'id_asc'
+    params[:order] ||= 'id_desc'
     if params[:order] && params[:order] =~ /^([\w\_\.]+)_(desc|asc)$/
       column = $1
       order  = $2

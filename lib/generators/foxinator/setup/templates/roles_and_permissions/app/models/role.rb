@@ -169,7 +169,8 @@ class Role < ActiveRecord::Base
     
     admins.each do |admin|
       custom_permissions = admin.permissions - previous_permissions
-      admin.permissions = permissions + custom_permissions
+      admin_permissions = permissions + custom_permissions
+      admin.permissions = admin_permissions
     end
   end
 

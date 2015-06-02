@@ -25,7 +25,6 @@ module Localizify
   
   def set_locale
     return true if kind_of?(Comfy::Cms::ContentController)
-    return true if kind_of?(OmniauthCallbacksController)
     
     unless [params[:locale].try(:to_sym)].compact.include?(parsed_locale.to_sym)
       redirect_to url_for(locale: parsed_locale)

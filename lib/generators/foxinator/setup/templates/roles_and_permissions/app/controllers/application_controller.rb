@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  rescue_from ActionController::RoutingError, with: :set_resuce_locale
+  rescue_from ActionController::RoutingError, with: :set_rescue_locale
 
   #
   # Concerns

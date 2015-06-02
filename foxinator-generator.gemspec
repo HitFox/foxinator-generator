@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "foxinator-generator"
-  s.version     = "0.0.11"
+  s.version     = "0.0.12"
   s.author      = "HitFox"
   s.email       = "peter@hitfoxgroup.com"
   s.homepage    = "https://github.com/HitFox/foxinator-generator"

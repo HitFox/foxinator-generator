@@ -43,3 +43,20 @@ Which will automatically create the model and controller files (inheriting from 
 Last step: Edit the permitted params in your controller file!
 
 That's it! You should now have a basic app up and running!
+
+=== The foxinator:create Command
+
+When you create a new admin-area controller and model using the foxinator:create command there are a few additional steps to keep in mind.
+
+To begin with, you need to customize your views and strong params.
+
+If you have Comments in your project, you have to add your model to line 35 in the +comments_controller.rb+ like so:
+
+<tt>belongs_to :admin, :role, :my_new_model, polymorphic: true</tt>
+
+Then also add this line to your +model.rb+ file:
+<tt>include Commentable</tt>
+
+Finally, in routes you need to add <tt>concerns: [:commentable]</tt> and then click the "Sync Roles & Permissions" button under Admin>Roles in the CMS admin page.
+
+

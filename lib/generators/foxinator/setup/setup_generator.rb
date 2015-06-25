@@ -64,7 +64,7 @@ module Foxinator
                   File.delete(destination_file[0..-4]) if File.exist?(destination_file[0..-4])
                   template(source, destination_file[0..-4], config)
                 else
-                  say "copying: #{source} to #{destination_file}"
+                  # say "copying: #{source} to #{destination_file}"
                   File.delete(destination_file) if File.exist?(destination_file)
                   #CMS generates a .sass file, we use .scss, so delete it
                   File.delete("app/assets/stylesheets/comfy/admin/cms/custom.sass") if destination_file.include? "custom.scss"

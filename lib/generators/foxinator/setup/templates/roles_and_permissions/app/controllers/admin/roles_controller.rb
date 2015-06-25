@@ -85,7 +85,9 @@ class Admin::RolesController < Admin::BaseController
   
   def permitted_params
     permitted_params = params.permit(resource_instance_name => [:name, permission_ids: []])
-    permitted_params.deep_merge!(resource_instance_name => { permission_ids: [] }) unless permitted_params[resource_instance_name].key?(:permission_ids)
+    if permitted_params[resource_instance_name].kind_of?(Hash) && !permitted_params[resource_instance_name].key?(:permission_ids)
+      permitted_params.deep_merge!(resource_instance_name => { permission_ids: [] })
+    end
     permitted_params
   end
 

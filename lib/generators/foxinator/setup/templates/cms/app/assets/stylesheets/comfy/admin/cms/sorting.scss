@@ -1,0 +1,23 @@
+.opposite-sorted-desc, .opposite-sorted-asc, .sorted-desc, .sorted-asc {
+  font-family: 'Glyphicons Halflings';
+  text-transform: none;
+  display: inline-block;
+  font-size: 0.5em;
+}
+
+.opposite-sorted-asc:before {
+  content: "\e094";
+  color: #cacfd2;
+}
+
+.opposite-sorted-desc:after {
+  content: "\e093";
+  color: #cacfd2;
+}
+
+.sorted-asc:before {
+  content: "\e094";
+}
+.sorted-desc:after {
+  content: "\e093";
+}

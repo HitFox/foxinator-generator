@@ -82,12 +82,14 @@ module SortHelper
       if @title.kind_of?(Symbol) ||  @title.kind_of?(String)
         default_title =  @title.to_s.titleize
 
-        if @options[:i18n]
-          @title = t(@options[:i18n])
+        @title = if @options[:i18n]
+          t(@options[:i18n])
         elsif @options[:name]
-          @title = @resource_class.human_attribute_name(@options[:name])
+          @resource_class.human_attribute_name(@options[:name])
+        elsif @options[:title]
+          @options[:title]
         elsif @resource_class  
-          @title = @resource_class.human_attribute_name(@title)
+          @resource_class.human_attribute_name(@title)
         else
           default_title
         end

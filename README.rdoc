@@ -34,6 +34,8 @@ To setup your admin user, you run:
 
 <tt>rake admins:setup</tt>
 
+Lastly, change the <tt>config.sign_out_via</tt> in <tt>devise.rb</tt> to <tt>:get</tt>.
+
 Now if you want to create an admin-area controller using the +foxinator-generator+ you can:
 
 <tt>rails g foxinator:create MyModel</tt>

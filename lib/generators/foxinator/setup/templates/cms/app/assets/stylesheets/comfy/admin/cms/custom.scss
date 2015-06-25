@@ -1,0 +1,27 @@
+@import 'sorting';
+@import 'bootstrap/_variables';
+
+.actions-cell { max-width: 55px; min-width: 40px; }
+.text-top { vertical-align: text-top; }
+
+table.table-resource {
+ tr td:first-child {
+   text-align: right;
+   width: 30%;
+   padding-right: 1em;
+ }
+}
+
+.main-nav > li > a {
+ position: relative;
+ display: block;
+ padding: 10px 15px;
+ color: #777;
+}
+
+.checkbox { margin-left: 20px; }
+
+.badge-notify{
+ background: $brand-danger;
+ position: relative;
+}

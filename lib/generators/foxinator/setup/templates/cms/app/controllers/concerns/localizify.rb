@@ -4,7 +4,7 @@ module Localizify
   included do
     helper_method :default_locale?
     
-    prepend_before_filter :set_available_locale, :set_locale
+    prepend_before_action :set_available_locale, :set_locale
   end
   
   def default_locale?
@@ -27,7 +27,11 @@ module Localizify
     return true if kind_of?(Comfy::Cms::ContentController)
     
     unless [params[:locale].try(:to_sym)].compact.include?(parsed_locale.to_sym)
-      redirect_to url_for(locale: parsed_locale)
+      begin
+        redirect_to url_for(locale: parsed_locale)
+      rescue
+        redirect_to manager_root_path(locale: parsed_locale)
+      end
     end
     
     I18n.locale = parsed_locale
@@ -67,10 +71,8 @@ module Localizify
   end
 
   def domain_locale
-    @domain_locale = begin
-      parsed_locale = request.host.split('.').last.try(:to_s)
-      locale_available?(parsed_locale) ? parsed_locale.try(:to_sym)  : nil
-    end
+    parsed_locale = request.host.split('.').last.try(:to_s)
+    locale_available?(parsed_locale) ? parsed_locale.try(:to_sym)  : nil
   end
   
   def accept_locale

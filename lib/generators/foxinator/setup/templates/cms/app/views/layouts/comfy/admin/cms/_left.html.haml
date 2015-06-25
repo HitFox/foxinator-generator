@@ -44,15 +44,6 @@
       = Admin.model_name.human(count: :other)
       %i.glyphicon.glyphicon-king.pull-right
 
-    <% if config[:permissions] %>
-    - if %w(admins roles).include?(controller_name)
-      %ul.navigation
-        %li
-          = active_link_to [:admin, Role], active: [['admin/roles'], []] do
-            = Role.model_name.human(count: :other)
-            %i.glyphicon.glyphicon-lock.pull-right
-    <% end %>
-      
 %ul.navigation
   %li
     = active_link_to comfy_admin_cms_sites_path, active: ['comfy/admin/cms/sites'] do

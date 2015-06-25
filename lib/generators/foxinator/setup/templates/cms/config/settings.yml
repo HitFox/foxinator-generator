@@ -5,6 +5,7 @@ devise:
 permissions:
   namespaces: 
     - :admin
+    - :comfy
   permitted:
     controllers:
       - admin/dashboards

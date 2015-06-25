@@ -1,0 +1,5 @@
+.body-footer.text-center
+  - if current_admin.super_admin?
+    = link_to [:sync_and_permit, :admin, Role], class: 'btn btn-info', method: :patch do
+      %i.glyphicon.glyphicon-refresh
+      = t('sync')

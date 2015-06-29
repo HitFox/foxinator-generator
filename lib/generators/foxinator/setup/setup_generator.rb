@@ -74,6 +74,9 @@ module Foxinator
               end
             end
           end
+
+          system("rake db:migrate")
+          system("rake admins:setup")
         end
 
         say "The best app template ever has been generated."

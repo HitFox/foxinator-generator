@@ -26,13 +26,7 @@ In your rails app run <tt>bundle install</tt> then to create your admin namespac
 
 This will install Devise and Comfortable Mexican Sofa and all other required dependencies for your admin area!
 
-Then:
-
-<tt>rake db:migrate</tt>
-
-To setup your admin user, you run:
-
-<tt>rake admins:setup</tt>
+It will automatically create an admin account with email "admin@example.com" and password "password".
 
 Lastly, change the <tt>config.sign_out_via</tt> in <tt>devise.rb</tt> to <tt>:get</tt>.
 

@@ -15,6 +15,9 @@ class Admin < ActiveRecord::Base
   #
   #
   #
+  
+  SUPERADMIN = "Super Admin"
+
 
   #
   # Attribute Settings
@@ -133,6 +136,8 @@ class Admin < ActiveRecord::Base
   #
   #
 
+  delegate :name, to: :role, prefix: true
+
   #
   # Instance Methods
   # ---------------------------------------------------------------------------------------
@@ -141,6 +146,10 @@ class Admin < ActiveRecord::Base
   #
   #
   
+  def superadmin?
+    role_name == SUPERADMIN
+  end
+
   def password_required?
     new_record? || password.present? || password_confirmation.present?
   end

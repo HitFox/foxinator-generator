@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope ':locale', defaults: { locale: I18n.default_locale.to_s } do
-
+    
     devise_for :admins, path: '/admin', path_names: { sign_in: 'login', sign_out: 'logout' }
 
     <% if config[:comments] %>
@@ -46,6 +46,6 @@ Rails.application.routes.draw do
     comfy_route :cms_admin, path: 'admin/cms'
     comfy_route :cms, path: '/', sitemap: false
   end
-
+  
   root to: 'comfy/cms/content#show'
 end

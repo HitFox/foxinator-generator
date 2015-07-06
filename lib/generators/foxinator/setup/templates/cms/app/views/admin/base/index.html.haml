@@ -7,7 +7,7 @@
     %thead
       = render 'table_head'
     %tbody
-      = render collection
+      = render collection, site: @site
     - if collection.total_pages > 1
       %tfoot
         %tr

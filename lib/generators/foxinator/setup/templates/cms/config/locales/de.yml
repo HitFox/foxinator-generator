@@ -34,6 +34,14 @@ de:
         title: '%{resource_name} bearbeiten'
       new:
         title: '%{resource_name} hinzufügen'
+    roles:
+      collection_actions:
+        sync: Synchronisieren
+        sync_and_permit: Synchronisieren und Rechten geben
+      sync:
+        success: Synchronisierung erfolgreich
+      sync_and_permit:
+        success: Synchronisierung erfolgreich
   time:
     formats:
       number: "%d.%m.%Y, %H:%M:%S"

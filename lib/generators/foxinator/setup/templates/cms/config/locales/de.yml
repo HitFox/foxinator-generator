@@ -19,6 +19,7 @@ de:
         email: 'E-Mail'
   are_you_sure: 'Sind Sie sicher?'
   dashboard: Dashboard
+  new: '%{resource_name} hinzufügen'
   edit: 'bearbeiten'
   delete: 'löschen'
   create: 'anlegen'
@@ -27,8 +28,6 @@ de:
   permissions: 'Berechtigungen bearbeiten'
   admin:
     base:
-      collection_actions:
-        new_link: '%{resource_name} hinzufügen'
       index:
         title: '%{collection_count} %{collection_name}'
       edit:

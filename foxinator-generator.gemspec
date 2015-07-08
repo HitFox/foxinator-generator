@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.4"
   s.license      = "Copyright HitFox Group"
 
+  s.add_dependency("state_machines-activerecord", "~> 0.2.0")
   s.add_dependency("state_machine", "~>1.2.0")
   s.add_dependency("inherited_resources", "~>1.6.0")
   s.add_dependency("rails_config", "~>0.4.2")

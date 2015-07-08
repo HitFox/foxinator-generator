@@ -28,7 +28,9 @@ This will install Devise and Comfortable Mexican Sofa and all other required dep
 
 It will automatically create an admin account with email "admin@example.com" and password "password".
 
-Lastly, change the <tt>config.sign_out_via</tt> in <tt>devise.rb</tt> to <tt>:get</tt>.
+Then change the <tt>config.sign_out_via</tt> in <tt>devise.rb</tt> to <tt>:get</tt>.
+
+If you want to specify a default site, uncomment line 10 in <tt>i18n.rb</tt>
 
 Now if you want to create an admin-area controller using the +foxinator-generator+ you can:
 

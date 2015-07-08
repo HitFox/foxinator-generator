@@ -6,7 +6,7 @@ module SortHelper
     defaults = { resource_class: respond_to?(:resource_class) ? resource_class : nil }
     options = defaults.merge(options)
     
-    args.last.kind_of?(Hash) && args.last.extractable_options? ? args[-1] = options : args << options
+    args.last.kind_of?(Hash) && args.last.extractable_options? ? args[-1] == options : args << options
     
     column = Column.new(*args, &block)    
     sort_key = column.sortable? && column.sort_key

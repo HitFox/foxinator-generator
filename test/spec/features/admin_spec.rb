@@ -33,7 +33,7 @@ describe "admin area" do
   it "can create a new TestModel" do
     visit "/en/admin/test_models"
 
-    click_link "Create New Test model"
+    click_link "create Test model"
 
     expect{click_button "create"}.to change{TestModel.all.count}.from(0).to(1)
   end

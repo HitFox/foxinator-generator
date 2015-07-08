@@ -44,6 +44,13 @@ class Admin::AdminsController < Admin::BaseController
   #
   #
   
+  def update
+    if current_admin.superadmin?
+      update! { [current_namespace, current_parent, site, resource] }
+    else
+      update! { admin_root_path}
+    end
+  end
   #
   # Protected
   # ---------------------------------------------------------------------------------------

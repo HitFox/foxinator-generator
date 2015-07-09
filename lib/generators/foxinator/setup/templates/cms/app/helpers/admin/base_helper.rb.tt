@@ -149,5 +149,13 @@ module Admin::BaseHelper
       File.join('rails_email_preview', filename)
     end
   end
+
+  def clean_collection
+    @clean_collection ||= if current_parent
+      current_parent.send(resource_collection_name)
+    else
+      resource_class
+    end
+  end
   
 end

@@ -2,6 +2,6 @@
   %h4= Comment.model_name.human(count: :other)
 
 = comfy_form_for [current_namespace, current_parent, Comment.new] do |form|
-  = form.text_area :message
+  = form.text_area :message, label: t('admin.comments.message')
   = form.form_group class: 'form-actions' do
     = form.submit t('create'), class: 'btn btn-primary'

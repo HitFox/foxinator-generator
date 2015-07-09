@@ -4,6 +4,9 @@ de:
     de: deutsch
   activerecord:
     models:
+      comment:
+        one: 'Kommentar'
+        other: 'Kommentaren'
       role:
         one: 'Rolle'
         other: 'Rollen'
@@ -42,6 +45,8 @@ de:
         success: Synchronisierung erfolgreich
       sync_and_permit:
         success: Synchronisierung erfolgreich
+    comments:
+      message: Kommentar
   time:
     formats:
       number: "%d.%m.%Y, %H:%M:%S"

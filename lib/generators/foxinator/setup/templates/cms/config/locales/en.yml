@@ -50,6 +50,8 @@ en:
         title: 'Edit %{resource_name}'
       new:
         title: 'Create New %{resource_name}'
+    comments:
+      message: Message
   time:
     formats:
       number: "%Y/%m/%d %H:%M:%S"

@@ -1,4 +1,7 @@
 en:
+  flash:
+    success: '%{action_name} successful.'
+    failure: '%{action_name} not successful!'
   language:
     en: english
     de: german

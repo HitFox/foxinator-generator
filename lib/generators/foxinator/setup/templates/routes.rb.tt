@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope ':locale', defaults: { locale: I18n.default_locale.to_s } do
+  scope ':locale' do
     
     devise_for :admins, path: '/admin', path_names: { sign_in: 'login', sign_out: 'logout' }
 

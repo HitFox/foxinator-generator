@@ -36,7 +36,7 @@ module Foxinator
       
       def generate_views
         template 'views/_form.html.haml', "app/views/admin/#{file_name.pluralize}/_form.html.haml"
-        template 'views/_right_column.html.haml', "app/views/admin/#{file_name.pluralize}/_right_column.html.haml"
+        template 'views/_right_column_after.html.haml', "app/views/admin/#{file_name.pluralize}/_right_column_after.html.haml"
         template 'views/_heading.html.haml', "app/views/admin/#{file_name.pluralize}/_heading.html.haml"
         template 'views/_show.html.haml', "app/views/admin/#{file_name.pluralize}/_show.html.haml"
         template 'views/_table_head.html.haml', "app/views/admin/#{file_name.pluralize}/_table_head.html.haml"

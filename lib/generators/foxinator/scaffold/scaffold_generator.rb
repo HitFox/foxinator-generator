@@ -2,7 +2,7 @@ require 'rails/generators/active_record'
 
 module Foxinator
   module Generators
-    class CreateGenerator < Rails::Generators::NamedBase
+    class ScaffoldGenerator < Rails::Generators::NamedBase
       
       include Rails::Generators::Migration
             

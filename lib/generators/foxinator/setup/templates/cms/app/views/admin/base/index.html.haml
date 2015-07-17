@@ -2,6 +2,8 @@
   = render 'collection_actions'
   %h2= t('.title', collection_count: collection.total_count, collection_name: resource_class.model_name.human(count: collection.count))
 
+= render 'breadcrumbs'
+
 .table-responsive
   %table.table.table-hover.table-bordered
     %thead

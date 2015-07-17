@@ -1,5 +1,23 @@
 module Admin::BaseHelper
-      
+
+  def breadcrumb_resource_name(resource)
+    if resource.respond_to?(:name) && resource.name.present?
+      resource.name
+    elsif current_parent
+      current_parent.to_param
+    elsif resource.persisted?
+      ['#', resource.to_param].join(' ')
+    else 
+      t('new', resource_name: '')
+    end
+  end
+  
+  def hash_table(hash)
+    content_tag :table, class: 'table table-bordered table-hover table-resource' do
+      hash.each { |k, v| concat(tr(k.to_sym, v, resource_class: resource_class)) }
+    end
+  end
+
   def current_title
     @current_title ||= if resource? && current_namespace != 'comfy'
       if resource.respond_to?(:name)

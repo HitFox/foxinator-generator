@@ -1,7 +1,9 @@
 module ApplicationHelper
   
   def resource?
-    params[:id].present?
+    resource && true
+  rescue ActiveRecord::RecordNotFound, NameError
+    false
   end
 
   def current_title

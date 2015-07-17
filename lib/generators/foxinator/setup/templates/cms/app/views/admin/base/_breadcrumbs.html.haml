@@ -1,0 +1,16 @@
+%ul.breadcrumb
+  = content_tag :li, class: %w(dashboards).include?(controller_name) ? :active : nil do
+    = link_to 'Home', [:admin, :root]
+  - if current_parent
+    %li= link_to parent.class.model_name.human(count: :other), [current_namespace, parent_class]
+    %li= link_to breadcrumb_resource_name(current_parent), [current_namespace, current_parent]
+    - if resource?
+      %li= link_to resource_class.model_name.human(count: :other), [current_namespace, current_parent, resource_class]
+      %li.active= link_to breadcrumb_resource_name(resource), [current_namespace, current_parent, resource]
+    - else
+      %li.active= link_to resource_class.model_name.human(count: :other), [current_namespace, current_parent, resource_class]
+  - elsif resource?
+    %li= link_to resource_class.model_name.human(count: :other), [current_namespace, resource_class]
+    %li.active= link_to breadcrumb_resource_name(resource), [current_namespace, resource]
+  - elsif resource_class
+    %li.active= link_to resource_class.model_name.human(count: :other), [current_namespace, resource? ? resource : resource_class]

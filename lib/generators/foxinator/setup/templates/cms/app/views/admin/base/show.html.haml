@@ -1,6 +1,9 @@
 .page-header
   = render 'member_actions'
+
   %h2= resource.try(:name) || [resource.model_name.human, resource.id].join(' #')
+
+= render 'breadcrumbs'
 
 = content_for :right_column do
   = render 'right_column'

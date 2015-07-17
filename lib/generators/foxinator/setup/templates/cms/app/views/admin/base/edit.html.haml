@@ -1,6 +1,8 @@
 .page-header
   %h2= t('.title', resource_name: resource_class.model_name.human)
 
+= render 'breadcrumbs'
+
 = comfy_form_for [current_namespace, current_parent, site, resource] do |form|
   = render form
   = form.form_group class: 'form-actions' do

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    foxinator-generator (0.0.16)
+    foxinator-generator (0.0.17)
       bootstrap-kaminari-views (~> 0.0.5)
       devise (~> 3.4.1)
       inherited_resources (~> 1.6.0)
@@ -48,7 +48,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    arel (6.0.0)
+    arel (6.0.2)
     bcrypt (3.1.10)
     bootstrap-kaminari-views (0.0.5)
       kaminari (>= 0.13)

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   #
   #
   
-  include Routify, Sortify, Localizify
+  include Routify, Sortify, Localizify, BackRedirectify
   
   #
   # Settings

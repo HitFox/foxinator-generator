@@ -55,12 +55,12 @@ class Admin::RolesController < Admin::BaseController
   
   def sync_and_permit
     Permission.sync_and_permit_admins!
-    redirect_to back_or_default_path([current_namespace, resource_class], notice: t('flash.success', action_name: t('.sync_and_permit')))
+    redirect_to back_or_default_path([current_namespace, resource_class]), notice: t('flash.success', action_name: t('.sync_and_permit'))
   end
 
   def sync
     Permission.sync
-    redirect_to back_or_default_path([current_namespace, resource_class], notice: t('flash.success', action_name: t('.sync')))
+    redirect_to back_or_default_path([current_namespace, resource_class]), notice: t('flash.success', action_name: t('.sync'))
   end
   
   #

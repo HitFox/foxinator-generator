@@ -1,5 +1,16 @@
 module Admin::BaseHelper
 
+  def tooltip(content, options = {})
+    defaults = {
+      title: content,
+      data: { toggle: :tooltip, placement: options[:placement] || :top },
+      class: 'glyphicon glyphicon-info-sign'
+    }
+
+    options = defaults.merge(options)
+    content_tag(:i, nil, options)
+  end
+
   def breadcrumb_resource_name(resource)
     if resource.respond_to?(:name) && resource.name.present?
       resource.name

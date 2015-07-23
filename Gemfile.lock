@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    foxinator-generator (0.0.17)
+    foxinator-generator (0.0.18)
       bootstrap-kaminari-views (~> 0.0.5)
       devise (~> 3.4.1)
       inherited_resources (~> 1.6.0)

@@ -63,4 +63,12 @@ If you just want to create a controller file and views, use <tt>foxinator:scaffo
 
 Please note that both of these commands create admin-namespaced classes.
 
+=== Additional Features
+
+There is now a basic tooltip functionality built into the CMS. If you want to add a tool tip to a table head, simply expand the +th+ tag like this:
+
+<tt>= th(:some_field, title_suffix: tooltip('MY TOOLTIP TEXT', placement: :right)</tt>
+
+By default the placement is :top, but you can overwrite it.
+
 

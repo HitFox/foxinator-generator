@@ -18,13 +18,17 @@ module SortHelper
     classes << options[:class]
     classes << column.html_class
     classes_string = classes.join(' ')
+
+    title = column.pretty_title.html_safe
+    title_suffix = options[:title_suffix].try(:strip) ? ['&nbsp;', options[:title_suffix].try(:strip)].join.html_safe : nil
     
     content_tag :th do
       if sort_key && column.sortable?
-        concat link_to(column.pretty_title.html_safe, params.merge(order: "#{sort_key}_#{order_for_sort_key(sort_key)}").except(:page))
+        concat link_to(title, params.merge(order: "#{sort_key}_#{order_for_sort_key(sort_key)}").except(:page))
+        concat title_suffix if title_suffix
         concat content_tag(:div, nil, class: classes)
       else
-        concat column.pretty_title.html_safe
+        concat [title, options[:title_suffix].try(:strip)].join.html_safe
       end
     end
   end

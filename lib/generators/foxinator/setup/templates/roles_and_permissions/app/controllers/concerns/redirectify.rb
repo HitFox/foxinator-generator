@@ -1,4 +1,4 @@
-module BackRedirectify
+module Redirectify
   extend ActiveSupport::Concern
 
   included do

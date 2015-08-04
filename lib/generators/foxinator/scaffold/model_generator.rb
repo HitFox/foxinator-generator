@@ -27,7 +27,8 @@ module Foxinator
         end
 
         def create_model
-          migration_template 'migration.rb', "db/migrate/create_#{file_name.pluralize}.rb"
+          table_name = class_name.tableize.parameterize('_')
+          migration_template 'migration.rb', "db/migrate/create_#{table_name}.rb"
           template 'model.rb', "app/models/#{file_name.singularize}.rb"
         end
       end

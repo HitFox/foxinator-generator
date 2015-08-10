@@ -4,7 +4,7 @@ The +foxinator-generator+ lets you quickly get HitFox projects off the ground. I
 
 == Features
 
-The +foxinator-generator+ uses the HitFox fork of Comfortable Mexican Sofa, Devise, and the +inherited_resource+ and +state_machine+ gems. The basic structure is an Admin namespace, which has a BaseController. All future admin-area controllers will inherit from this BaseController. The BaseController comes with a set of default views which will be automatically inherited by all sub-controllers, making your code more DRY.
+The +foxinator-generator+ uses the Comfortable Mexican Loveseat, Devise, and the +inherited_resource+ and +state_machine+ gems. The basic structure is an Admin namespace, which has a BaseController. All future admin-area controllers will inherit from this BaseController. The BaseController comes with a set of default views which will be automatically inherited by all sub-controllers, making your code more DRY.
 
 When you use the <tt>foxinator:create</tt> command, it will add a controller in this Admin namespace, inheriting from the BaseController.
 

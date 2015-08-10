@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "foxinator-generator"
-  s.version     = "0.0.19"
+  s.version     = "0.0.20"
   s.author      = "HitFox"
   s.email       = "peter@hitfoxgroup.com"
   s.homepage    = "https://github.com/HitFox/foxinator-generator"
@@ -18,7 +18,8 @@ Gem::Specification.new do |s|
   s.add_dependency("state_machine", "~>1.2.0")
   s.add_dependency("inherited_resources", "~>1.6.0")
   s.add_dependency("rails_config", "~>0.4.2")
-  s.add_dependency "devise", "~>3.4.1"
+  s.add_dependency("devise", "~>3.4.1")
   s.add_dependency("kaminari", "~>0.16.3")
   s.add_dependency("bootstrap-kaminari-views", "~> 0.0.5")
+  s.add_dependency("comfortable_mexican_loveseat", "~>0.0.8")
 end

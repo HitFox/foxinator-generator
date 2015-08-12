@@ -79,8 +79,8 @@ module Localizify
     if request.env['HTTP_ACCEPT_LANGUAGE'].present?
       parsed_locale = request.env['HTTP_ACCEPT_LANGUAGE'].gsub(/\s+/, '').split(',').first
       parsed_locale = parsed_locale.scan(/^[a-z]{2}-[a-z]{2}|[a-z]{2}/i).first if parsed_locale
-      parsed_locale = parsed_locale.split('-').last.try(:downcase).try(:to_sym) if parsed_locale
-      
+      parsed_locale = parsed_locale.split('-').first.try(:downcase).try(:to_sym) if parsed_locale
+
       locale_available?(parsed_locale) ? parsed_locale.try(:to_sym)  : nil
     end
   end

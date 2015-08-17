@@ -30,7 +30,7 @@ module Localizify
       begin
         redirect_to url_for(locale: parsed_locale)
       rescue
-        redirect_to manager_root_path(locale: parsed_locale)
+        redirect_to root_path(locale: parsed_locale)
       end
     end
     

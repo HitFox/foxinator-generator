@@ -22,7 +22,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'comfortable_mexican_sofa', git: 'git@github.com:HitFox/comfortable-mexican-sofa.git'
 gem 'foxinator-generator', path: '~/Workspace/foxinator-generator'
 
 # Use ActiveModel has_secure_password

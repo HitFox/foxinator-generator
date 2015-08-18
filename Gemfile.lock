@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    foxinator-generator (0.0.19)
+    foxinator-generator (0.0.22)
       bootstrap-kaminari-views (~> 0.0.5)
-      comfortable_mexican_loveseat (~> 0.0.8)
+      comfortable_mexican_loveseat (~> 0.0.12)
       devise (~> 3.4.1)
       inherited_resources (~> 1.6.0)
       kaminari (~> 0.16.3)
@@ -52,7 +52,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
-    autoprefixer-rails (5.2.1.1)
+    autoprefixer-rails (5.2.1.2)
       execjs
       json
     bcrypt (3.1.10)
@@ -77,7 +77,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
-    comfortable_mexican_loveseat (0.0.8)
+    comfortable_mexican_loveseat (0.0.12)
       comfortable_mexican_sofa (~> 1.12.8)
       rack-rewrite (~> 1.5.1)
       rails (>= 4.0)
@@ -105,10 +105,10 @@ GEM
       warden (~> 1.2.3)
     docile (1.1.5)
     erubis (2.7.0)
-    execjs (2.5.2)
+    execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    haml (4.0.6)
+    haml (4.0.7)
       tilt
     haml-rails (0.9.0)
       actionpack (>= 4.0.1)
@@ -141,7 +141,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kramdown (1.8.0)
-    loofah (2.0.2)
+    loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
@@ -177,7 +177,7 @@ GEM
       sprockets-rails
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
-    rails-dom-testing (1.0.6)
+    rails-dom-testing (1.0.7)
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
@@ -219,7 +219,7 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    sprockets (3.2.0)
+    sprockets (3.3.1)
       rack (~> 1.0)
     sprockets-rails (2.3.2)
       actionpack (>= 3.0)

@@ -44,8 +44,8 @@ Rails.application.routes.draw do
     end
 
     comfy_route :cms_admin, path: 'admin/cms'
-    comfy_route :cms, path: '/', sitemap: false
   end
-  
+
+  comfy_route :cms, path: '/', sitemap: false
   root to: 'comfy/cms/content#show'
 end

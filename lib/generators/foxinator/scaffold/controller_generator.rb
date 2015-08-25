@@ -27,7 +27,7 @@ module Foxinator
           template 'views/_heading.html.haml', "app/views/admin/#{file_name.pluralize}/_heading.html.haml"
           template 'views/_show.html.haml', "app/views/admin/#{file_name.pluralize}/_show.html.haml"
           template 'views/_table_head.html.haml', "app/views/admin/#{file_name.pluralize}/_table_head.html.haml"
-          template 'views/_file_name.html.haml', "app/views/admin/#{file_name.pluralize}/_#{file_name}.html.haml"
+          template 'views/_file_name.html.haml', "app/views/admin/#{file_name.pluralize}/_#{file_name.singularize}.html.haml"
         end
         
         def generate_route

@@ -127,9 +127,9 @@ module Admin::BaseHelper
   
   def actions_cell_tag(resource)
     content_tag :td, class: 'actions-cell' do
-      concat link_to(content_tag(:i, nil,  class: 'glyphicon glyphicon-trash'), [current_namespace, site(resource), resource], class: 'btn btn-danger btn-xs pull-right', method: :delete, data: { confirm: t('are_you_sure') })
+      concat link_to(content_tag(:i, nil,  class: 'glyphicon glyphicon-trash'), [current_namespace, resource], class: 'btn btn-danger btn-xs pull-right', method: :delete, data: { confirm: t('are_you_sure') })
       concat content_tag(:span, '&nbsp;'.html_safe, class: 'pull-right')
-      concat link_to(content_tag(:i, nil, class: 'glyphicon glyphicon-pencil'), [:edit, current_namespace, site(resource), resource], class: 'btn btn-default btn-xs pull-right')
+      concat link_to(content_tag(:i, nil, class: 'glyphicon glyphicon-pencil'), [:edit, current_namespace, resource], class: 'btn btn-default btn-xs pull-right')
     end
   end
   

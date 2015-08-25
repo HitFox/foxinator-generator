@@ -11,10 +11,6 @@ Rails.application.routes.draw do
 
     namespace :admin do
 
-      #resources :sites do
-       # Add your multilanguage models here, for example:
-       # resources :events
-      #end
       resource :account, only: [:edit, :update]
 
       <% if config[:permissions] %>

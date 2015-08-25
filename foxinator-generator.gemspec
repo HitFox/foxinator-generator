@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
   s.add_dependency("devise", "~>3.4.1")
   s.add_dependency("kaminari", "~>0.16.3")
   s.add_dependency("bootstrap-kaminari-views", "~> 0.0.5")
-  s.add_dependency("comfortable_mexican_loveseat", "~>0.0.13")
+  s.add_dependency("comfortable_mexican_loveseat", "~>0.0.14")
 end

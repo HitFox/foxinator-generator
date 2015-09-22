@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.add_dependency("state_machines-activerecord", "~> 0.2.0")
   s.add_dependency("state_machine", "~>1.2.0")
   s.add_dependency("inherited_resources", "~>1.6.0")
-  s.add_dependency("rails_config", "~>0.4.2")
+  s.add_dependency("config", "~>1.0.0")
   s.add_dependency("devise", "~>3.4.1")
   s.add_dependency("kaminari", "~>0.16.3")
   s.add_dependency("bootstrap-kaminari-views", "~> 0.0.5")

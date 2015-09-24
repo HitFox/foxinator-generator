@@ -3,7 +3,7 @@ PATH
   specs:
     foxinator-generator (0.0.28)
       bootstrap-kaminari-views (~> 0.0.5)
-      comfortable_mexican_loveseat (~> 0.0.15)
+      comfortable_mexican_loveseat (~> 0.0.17)
       config (~> 1.0.0)
       devise (~> 3.4.1)
       inherited_resources (~> 1.6.0)
@@ -77,10 +77,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
-    comfortable_mexican_loveseat (0.0.15)
+    comfortable_mexican_loveseat (0.0.17)
       comfortable_mexican_sofa (~> 1.12.8)
       rack-rewrite (~> 1.5.1)
       rails (>= 4.0)
+      rubyzip (~> 1.1)
     comfortable_mexican_sofa (1.12.8)
       active_link_to (>= 1.0.0)
       bootstrap-sass (>= 3.2.0)
@@ -202,6 +203,7 @@ GEM
       railties (>= 4.2.0, < 5)
     ruby_parser (3.7.1)
       sexp_processor (~> 4.1)
+    rubyzip (1.1.7)
     sass (3.4.18)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)

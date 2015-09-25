@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    foxinator-generator (0.0.29)
+    foxinator-generator (0.0.30)
       bootstrap-kaminari-views (~> 0.0.5)
       comfortable_mexican_loveseat (~> 0.0.17)
       config (~> 1.0.0)

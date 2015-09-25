@@ -146,7 +146,7 @@ class Admin < ActiveRecord::Base
   #
   #
   
-  def superadmin?
+  def super_admin?
     role_name == SUPERADMIN
   end
 

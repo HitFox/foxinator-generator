@@ -8,7 +8,6 @@ PATH
       devise (~> 3.4.1)
       inherited_resources (~> 1.6.0)
       kaminari (~> 0.16.3)
-      state_machine (~> 1.2.0)
       state_machines-activerecord (~> 0.2.0)
 
 GEM
@@ -229,7 +228,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    state_machine (1.2.0)
     state_machines (0.2.2)
     state_machines-activemodel (0.1.2)
       activemodel (~> 4.1)

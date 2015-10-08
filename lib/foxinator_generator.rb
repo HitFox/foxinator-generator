@@ -1,6 +1,5 @@
 require "rails/generators"
 require "devise"
-require "state_machine"
 require "state_machines-activerecord"
 require "inherited_resources"
 require "config"

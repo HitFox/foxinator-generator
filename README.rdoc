@@ -2,10 +2,6 @@
 
 The +foxinator-generator+ lets you quickly get HitFox projects off the ground. It comes with three installation options: a basic admin controller system, a CMS with roles & permissions, and a CMS with admin comments. Of course, you can install all three too. It also gives you a custom scaffold to generate admin-area models.
 
-== Features
-
-The +foxinator-generator+ uses the <tt>Comfortable Mexican Loveseat</tt>, +Devise+, and the +inherited_resource+ and +state_machine+ gems. The basic structure is an Admin namespace, which has a BaseController. All future admin-area controllers will inherit from this BaseController. The BaseController comes with a set of default views which will be automatically inherited by all sub-controllers, making your code more DRY.
-
 == Installation
 
 Include the gem in your gemfile:
@@ -13,6 +9,16 @@ Include the gem in your gemfile:
 <tt>gem "foxinator-generator", git: "git@github.com:HitFox/foxinator-generator.git"</tt>
 
 Then answer +y+ or +n+ to the prompts.
+
+== Features
+
+The +foxinator-generator+ uses the <tt>Comfortable Mexican Loveseat</tt>, +Devise+, and the +inherited_resource+ and +state_machine+ gems. The basic structure is an Admin namespace, which has a BaseController. All future admin-area controllers will inherit from this BaseController. The BaseController comes with a set of default views which will be automatically inherited by all sub-controllers, making your code more DRY.
+
+There is also a basic tooltip functionality built into the CMS. If you want to add a tool tip to a table head, simply expand the +th+ tag like this:
+
+<tt>= th(:some_field, title_suffix: tooltip('MY TOOLTIP TEXT', placement: :right)</tt>
+
+By default the placement is :top, but you can overwrite it.
 
 == Usage
 
@@ -59,12 +65,6 @@ If you just want to create a controller file and views, use <tt>foxinator:scaffo
 
 Please note that both of these commands create admin-namespaced classes.
 
-=== Additional Features
-
-There is now a basic tooltip functionality built into the CMS. If you want to add a tool tip to a table head, simply expand the +th+ tag like this:
-
-<tt>= th(:some_field, title_suffix: tooltip('MY TOOLTIP TEXT', placement: :right)</tt>
-
-By default the placement is :top, but you can overwrite it.
+== Changelog
 
 

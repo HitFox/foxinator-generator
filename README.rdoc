@@ -1,3 +1,5 @@
+{HitFox Logo}[http://www.hitfoxgroup.com/downloads/hitfox_logo_with_tag_two_colors_WEB.png]
+
 = foxinator-generator
 
 The +foxinator-generator+ lets you quickly get HitFox projects off the ground. It comes with three installation options: a basic admin controller system, a CMS with roles & permissions, and a CMS with admin comments. Of course, you can install all three too. It also gives you a custom scaffold to generate admin-area models.

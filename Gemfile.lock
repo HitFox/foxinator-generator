@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    foxinator-generator (0.0.31)
+    foxinator-generator (0.0.32)
       bootstrap-kaminari-views (~> 0.0.5)
-      comfortable_mexican_loveseat (~> 0.0.21)
+      comfortable_mexican_loveseat (~> 0.0.22)
       config (~> 1.0.0)
       devise (~> 3.4.1)
       inherited_resources (~> 1.6.0)
@@ -76,7 +76,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
-    comfortable_mexican_loveseat (0.0.21)
+    comfortable_mexican_loveseat (0.0.22)
       comfortable_mexican_sofa (~> 1.12.8)
       rack-rewrite (~> 1.5.1)
       rails (>= 4.0)

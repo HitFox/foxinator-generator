@@ -31,8 +31,6 @@ class Comment < ActiveRecord::Base
   #
   #
   #
-  
-  include Twitter::Extractor
 
   #
   # Concerns
